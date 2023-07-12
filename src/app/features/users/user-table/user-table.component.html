@@ -13,6 +13,7 @@
     <th scope="col">Email</th>
     <th scope="col">Phone</th>
     <th scope="col">Status</th>
+    <th scope="col">Actions</th>
   </tr>
   </thead>
   <tbody>
@@ -27,9 +28,9 @@
       <div *ngIf="!user.isApproved">Pending</div>
     </td>
     <td>
-      <button (click)="onEditUser(user)" class="btn btn-primary">Edit</button>
-      <button (click)="onApproveUser(user)" class="btn btn-primary" *ngIf="!user.isApproved">Approve</button>
-      <button (click)="onDeleteUser(user)" class="btn btn-secondary">Remove</button>
+      <button (click)="onEditUser(user)" class="btn btn-edit">Edit</button>
+      <button (click)="onApproveUser(user)" class="btn btn-approve" *ngIf="!user.isApproved">Approve</button>
+      <button (click)="onDeleteUser(user)" class="btn btn-remove">Remove</button>
     </td>
   </tr>
   </tbody>

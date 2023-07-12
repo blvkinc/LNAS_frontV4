@@ -8,6 +8,7 @@ import {UserResourceService} from '../../../api/services/user-resource.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './user-table.component.html',
+  styleUrls: ['user-table.component.css'],
 })
 export class UserTableComponent implements OnInit {
 
