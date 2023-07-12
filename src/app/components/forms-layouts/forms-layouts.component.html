@@ -1,0 +1,221 @@
+<main class="main" id="main">
+  <div class="pagetitle">
+    <h1>Form Layouts</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">Forms</li>
+        <li class="breadcrumb-item active">Layouts</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Horizontal Form</h5>
+            <form>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="inputEmail3">Your Name</label>
+                <div class="col-sm-10"><input class="form-control" id="inputText" type="text"></div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="inputEmail3">Email</label>
+                <div class="col-sm-10"><input class="form-control" id="inputEmail" type="email"></div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="inputPassword3">Password</label>
+                <div class="col-sm-10"><input class="form-control" id="inputPassword" type="password"></div>
+              </div>
+              <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+                <div class="col-sm-10">
+                  <div class="form-check"><input checked class="form-check-input" id="gridRadios1"
+                                                 name="gridRadios" type="radio" value="option1"> <label
+                    class="form-check-label" for="gridRadios1"> First radio </label></div>
+                  <div class="form-check"><input class="form-check-input" id="gridRadios2" name="gridRadios"
+                                                 type="radio" value="option2"> <label class="form-check-label"
+                                                                                      for="gridRadios2"> Second
+                    radio </label></div>
+                  <div class="form-check disabled"><input class="form-check-input" disabled id="gridRadios3"
+                                                          name="gridRadios" type="radio" value="option3"> <label
+                    class="form-check-label" for="gridRadios3"> Third disabled radio </label></div>
+                </div>
+              </fieldset>
+              <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                  <div class="form-check"><input class="form-check-input" id="gridCheck1" type="checkbox"> <label
+                    class="form-check-label" for="gridCheck1"> Example checkbox </label></div>
+                </div>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-secondary" type="reset">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Multi Columns Form</h5>
+            <form class="row g-3">
+              <div class="col-md-12"><label class="form-label" for="inputName5">Your Name</label> <input
+                class="form-control"
+                id="inputName5"
+                type="text">
+              </div>
+              <div class="col-md-6"><label class="form-label" for="inputEmail5">Email</label> <input
+                class="form-control"
+                id="inputEmail5"
+                type="email">
+              </div>
+              <div class="col-md-6"><label class="form-label" for="inputPassword5">Password</label> <input
+                class="form-control" id="inputPassword5" type="password"></div>
+              <div class="col-12"><label class="form-label" for="inputAddress5">Address</label> <input
+                class="form-control"
+                id="inputAddres5s"
+                placeholder="1234 Main St"
+                type="text">
+              </div>
+              <div class="col-12"><label class="form-label" for="inputAddress2">Address 2</label> <input
+                class="form-control"
+                id="inputAddress2"
+                placeholder="Apartment, studio, or floor"
+                type="text">
+              </div>
+              <div class="col-md-6"><label class="form-label" for="inputCity">City</label> <input class="form-control"
+                                                                                                  id="inputCity"
+                                                                                                  type="text"></div>
+              <div class="col-md-4">
+                <label class="form-label" for="inputState">State</label>
+                <select class="form-select" id="inputState">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="col-md-2"><label class="form-label" for="inputZip">Zip</label> <input class="form-control"
+                                                                                                id="inputZip"
+                                                                                                type="text"></div>
+              <div class="col-12">
+                <div class="form-check"><input class="form-check-input" id="gridCheck" type="checkbox"> <label
+                  class="form-check-label" for="gridCheck"> Check me out </label></div>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-secondary" type="reset">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Vertical Form</h5>
+            <form class="row g-3">
+              <div class="col-12"><label class="form-label" for="inputNanme4">Your Name</label> <input
+                class="form-control"
+                id="inputNanme4"
+                type="text">
+              </div>
+              <div class="col-12"><label class="form-label" for="inputEmail4">Email</label> <input class="form-control"
+                                                                                                   id="inputEmail4"
+                                                                                                   type="email">
+              </div>
+              <div class="col-12"><label class="form-label" for="inputPassword4">Password</label> <input
+                class="form-control"
+                id="inputPassword4"
+                type="password">
+              </div>
+              <div class="col-12"><label class="form-label" for="inputAddress">Address</label> <input
+                class="form-control"
+                id="inputAddress"
+                placeholder="1234 Main St"
+                type="text">
+              </div>
+              <div class="text-center">
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-secondary" type="reset">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">No Labels / Placeholders as labels Form</h5>
+            <form class="row g-3">
+              <div class="col-md-12"><input class="form-control" placeholder="Your Name" type="text"></div>
+              <div class="col-md-6"><input class="form-control" placeholder="Email" type="email"></div>
+              <div class="col-md-6"><input class="form-control" placeholder="Password" type="password"></div>
+              <div class="col-12"><input class="form-control" placeholder="Address" type="text"></div>
+              <div class="col-md-6"><input class="form-control" placeholder="City" type="text"></div>
+              <div class="col-md-4">
+                <select class="form-select" id="inputState">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="col-md-2"><input class="form-control" placeholder="Zip" type="text"></div>
+              <div class="text-center">
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-secondary" type="reset">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Floating labels Form</h5>
+            <form class="row g-3">
+              <div class="col-md-12">
+                <div class="form-floating"><input class="form-control" id="floatingName" placeholder="Your Name"
+                                                  type="text"> <label for="floatingName">Your Name</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating"><input class="form-control" id="floatingEmail" placeholder="Your Email"
+                                                  type="email"> <label for="floatingEmail">Your
+                  Email</label></div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating"><input class="form-control" id="floatingPassword" placeholder="Password"
+                                                  type="password"> <label for="floatingPassword">Password</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-floating"><textarea class="form-control" id="floatingTextarea" placeholder="Address"
+                                                     style="height: 100px;"></textarea><label for="floatingTextarea">Address</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="col-md-12">
+                  <div class="form-floating"><input class="form-control" id="floatingCity" placeholder="City"
+                                                    type="text"> <label for="floatingCity">City</label></div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-floating mb-3">
+                  <select aria-label="State" class="form-select" id="floatingSelect">
+                    <option selected>New York</option>
+                    <option value="1">Oregon</option>
+                    <option value="2">DC</option>
+                  </select>
+                  <label for="floatingSelect">State</label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-floating"><input class="form-control" id="floatingZip" placeholder="Zip" type="text">
+                  <label for="floatingZip">Zip</label></div>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-secondary" type="reset">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

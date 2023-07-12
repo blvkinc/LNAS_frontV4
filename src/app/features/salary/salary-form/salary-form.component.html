@@ -1,0 +1,91 @@
+<h5 class="card-title">
+  {{type === 'SEARCH' ? 'Search Salaries' : ''}}
+  {{type === 'CREATE' ? 'Create New Salary' : ''}}
+  {{type === 'UPDATE' ? 'Update Salary - ' : ''}}{{type === 'UPDATE' ? inputValue.id : ''}}
+</h5>
+<form [formGroup]="form" class="row g-3">
+  <div class="col-md-6">
+    <label>Amount</label>
+    <input class="form-control" formControlName="amount" type="number">
+    <!-- Display error message if the amount field is invalid -->
+    <div *ngIf="form.get('amount').invalid && form.get('amount').touched && type !== 'SEARCH'">
+      <div *ngIf="form.get('amount').errors.required" style="color: orangered">
+        Amount is required.
+      </div>
+      <div *ngIf="form.get('amount').errors.pattern" style="color: orangered">
+        Amount should be a valid number with up to 2 decimal places.
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <label>Paid On</label>
+    <input class="form-control" formControlName="paidOn" type="date">
+    <!-- Display error message if the paidOn field is invalid -->
+    <div *ngIf="form.get('paidOn').invalid && form.get('paidOn').touched && type !== 'SEARCH'">
+      <div *ngIf="form.get('paidOn').errors.required" style="color: orangered">
+        Paid On is required.
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <label>Employee</label>
+    <input class="form-control" formControlName="employee" type="email">
+    <!-- Display error message if the name field is invalid -->
+    <div *ngIf="form.get('employee').invalid && form.get('employee').touched && type !== 'SEARCH'">
+      <div *ngIf="form.get('employee').errors.required" style="color: orangered">
+        Employee is required.
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <label>Status</label>
+    <select class="form-select" formControlName="status" id="inputState">
+      <option value="PAID">Paid</option>
+      <option value="PENDING">Pending</option>
+      <option value="CANCELLED">Cancelled</option>
+    </select>
+    <!-- Display error message if the status field is invalid -->
+    <div *ngIf="form.get('status').invalid && form.get('status').touched && type !== 'SEARCH'">
+      <div *ngIf="form.get('status').errors.required" style="color: orangered">
+        Status is required.
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <label>Description</label>
+    <input class="form-control" formControlName="description" type="text">
+    <!-- Display error message if the description field is invalid -->
+    <div *ngIf="form.get('description').invalid && form.get('description').touched && type !== 'SEARCH'">
+      <div *ngIf="form.get('description').errors.required" style="color: orangered">
+        Description is required.
+      </div>
+      <div *ngIf="form.get('description').errors.maxlength" style="color: orangered">
+        Description cannot exceed 255 characters.
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: row;justify-content: space-between;">
+    <div style="display: flex; flex-direction: row; gap: 10px">
+      <button (click)="type='CREATE'" *ngIf="type=='SEARCH'" class="btn btn-primary" type="button">Add New</button>
+      <button (click)="onSubmit()" *ngIf="type==='UPDATE'" class="btn btn-dark" type="button">Update</button>
+      <button (click)="onCancel()" *ngIf="type==='UPDATE'" class="btn btn-secondary" type="button">
+        Cancel
+      </button>
+    </div>
+    <div style="display: flex; flex-direction: row; gap: 10px">
+      <button (click)="onSearchClick()" *ngIf="type==='SEARCH'" class="btn btn-primary" type="button">
+        Search
+      </button>
+      <button (click)="onSubmit()" *ngIf="type==='CREATE'" class="btn btn-primary" type="button">Save</button>
+      <button (click)="onSearchClear()" *ngIf="type==='SEARCH'" class="btn btn-secondary" type="button">Clear</button>
+      <button (click)="onCancel()" *ngIf="type==='CREATE'" class="btn btn-secondary" type="button">
+        Cancel
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,125 @@
+<header class="header fixed-top d-flex align-items-center" id="header" [hasRole]="['ADMIN', 'MODERATOR', 'EMPLOYEE', 'SUPPLIER', 'CUSTOMER']">
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+      <i (click)="sidebarToggle()" class="bi bi-list toggle-sidebar-btn" style="margin-right: 10px;"></i>
+      <a class="logo d-flex align-items-center" routerLink="dashboard">
+        <img alt="Lanka Natural Agri Services" src="assets/img/logo2.png">
+        <span class="d-none d-lg-block small-span">L.N.A.S</span>
+      </a>
+    </div>
+  </div>
+  <nav class="header-nav ms-auto">
+    <ul class="d-flex align-items-center">
+      <li class="nav-item dropdown pe-3">
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" data-bs-toggle="dropdown" href="#"> <span
+          class="d-none d-md-block dropdown-toggle ps-2">{{user?.firstName}} {{user?.lastName}}</span> </a>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          <li class="dropdown-header">
+            <h6>{{user?.firstName}} {{user?.lastName}}</h6>
+            <span>{{user?.role}}</span>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item d-flex align-items-center" routerLink="user-profile"> <i
+            class="bi bi-person"></i> <span>My Profile</span> </a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <a (click)="onSignOut()" class="dropdown-item d-flex align-items-center">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Sign Out</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+<aside class="sidebar" id="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item" [hasRole]="['ADMIN', 'MODERATOR', 'EMPLOYEE', 'SUPPLIER', 'CUSTOMER']">
+      <a class="nav-link collapsed " routerLink="dashboard">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item" [hasRole]="['ADMIN', 'MODERATOR', 'EMPLOYEE','CUSTOMER','SUPPLIER']">
+      <a class="nav-link collapsed" data-bs-target="#production-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-menu-button-wide"></i>
+        <span>Production</span>
+        <i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul class="nav-content collapse " data-bs-parent="#sidebar-nav" id="production-nav" >
+        <li [hasRole]="['ADMIN', 'MODERATOR', 'EMPLOYEE', 'CUSTOMER' ,'SUPPLIER']"><a routerLink="plants-production"> <i class="bi bi-circle"></i><span>Plants Production</span> </a></li>
+        <li [hasRole]="['ADMIN', 'MODERATOR', 'EMPLOYEE']"><a routerLink="farms"> <i class="bi bi-circle"></i><span>Manage Farms</span> </a></li>
+        <li [hasRole]="['ADMIN', 'MODERATOR', 'CUSTOMER']"><a routerLink="plants"> <i class="bi bi-circle"></i><span>Manage Plants</span> </a></li>
+      </ul>
+    </li>
+    <li class="nav-item" [hasRole]="['ADMIN']">
+      <a class="nav-link collapsed" data-bs-target="#sales-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-receipt"></i>
+        <span>Orders</span>
+        <i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul class="nav-content collapse " data-bs-parent="#sidebar-nav" id="sales-nav" [hasRole]="['ADMIN']">
+        <li><a routerLink="sales-orders"> <i class="bi bi-circle"></i><span>Sales Orders</span> </a></li>
+        <li><a routerLink="purchase-orders"> <i class="bi bi-circle"></i><span>Purchase Orders</span> </a></li>
+      </ul>
+    </li>
+    <li class="nav-item" [hasRole]="['ADMIN', 'MODERATOR','SUPPLIERS']">
+      <a class="nav-link collapsed" data-bs-target="#contacts-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi bi-person-lines-fill"></i>
+        <span>Contacts</span>
+        <i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul class="nav-content collapse " data-bs-parent="#sidebar-nav" id="contacts-nav">
+        <li [hasRole]="['ADMIN', 'MODERATOR','SUPPLIERS']"><a routerLink="suppliers"> <i class="bi bi-circle"></i><span>Suppliers</span> </a></li>
+        <li  [hasRole]="['ADMIN', 'MODERATOR']"><a routerLink="customers"> <i class="bi bi-circle"></i><span>Customers</span> </a></li>
+      </ul>
+    </li>
+    <li class="nav-item" [hasRole]="['ADMIN']">
+      <a class="nav-link collapsed" data-bs-target="#employee-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-menu-button-wide"></i>
+        <span>Employees</span>
+        <i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul class="nav-content collapse " data-bs-parent="#sidebar-nav" id="employee-nav" [hasRole]="['ADMIN']">
+        <li><a routerLink="salary-payments"> <i class="bi bi-circle"></i><span>Salary Payments</span> </a></li>
+        <li><a routerLink="employees"> <i class="bi bi-circle"></i><span>Manage Employees</span> </a></li>
+      </ul>
+    </li>
+    <li class="nav-item" [hasRole]="['ADMIN']">
+      <a class="nav-link collapsed" routerLink="monthly-reports">
+        <i class="bi bi-file-bar-graph"></i>
+        <span>Management Reports</span>
+      </a>
+    </li>
+    <li class="nav-item" [hasRole]="['ADMIN']">
+      <a class="nav-link collapsed" routerLink="users">
+        <i class="bi bi-person-workspace"></i>
+        <span>Users</span>
+      </a>
+    </li>
+    <li class="nav-heading">
+      <hr>
+    </li>
+    <li class="nav-item" [hasRole]="['ADMIN', 'MODERATOR', 'EMPLOYEE', 'SUPPLIER', 'CUSTOMER']">
+      <a class="nav-link collapsed" routerLink="user-profile"> <i class="bi bi-person"></i> <span>Profile</span> </a>
+    </li>
+    <li class="nav-item" [hasRole]="['ADMIN', 'MODERATOR', 'EMPLOYEE', 'SUPPLIER', 'CUSTOMER']">
+      <a class="nav-link collapsed" routerLink="pages-faq"> <i class="bi bi-question-circle"></i> <span>FAQ</span> </a>
+    </li>
+  </ul>
+</aside>
+
+<main class="main" id="main">
+  <router-outlet></router-outlet>
+</main>

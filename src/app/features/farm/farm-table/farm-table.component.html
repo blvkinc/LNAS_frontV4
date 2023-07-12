@@ -1,0 +1,46 @@
+<table class="table datatable mt-5">
+  <caption></caption>
+  <thead>
+  <tr>
+    <th scope="col">
+      #
+      <button (click)="toggleSortOrder()" class="btn btn-link custom-btn-link">
+        <i [class]="sortBy[0] === 'id,asc' ? 'bi bi-caret-up-fill' : 'bi bi-caret-down-fill'"></i>
+      </button>
+    </th>
+    <th scope="col">Name</th>
+    <th scope="col">Farm Location</th>
+    <th scope="col">Description</th>
+    <th scope="col">Status</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let farm of farms">
+    <th scope="row">{{farm.id}}</th>
+    <td>{{farm.name}}</td>
+    <td>{{farm.location}}</td>
+    <td>{{farm.description}}</td>
+    <td>{{farm.status}}</td>
+    <td>
+      <button (click)="onEditClick(farm)" class="btn btn-link custom-btn-link">Edit</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div *ngIf="totalPages>0" style="display: flex;">
+  <div style="flex: 1"></div>
+  <nav>
+    <ul class="pagination">
+      <li [class.disabled]="currentPage===1" class="page-item">
+        <a (click)="onPageChange(currentPage=currentPage-1)" class="page-link">Previous</a>
+      </li>
+      <li *ngFor="let pageNumber of pageNumbers" [class.active]="pageNumber === currentPage" class="page-item ">
+        <a (click)="onPageChange(currentPage=pageNumber)" class="page-link custom-page-link">{{pageNumber}}</a>
+      </li>
+      <li [class.disabled]="currentPage === totalPages" class="page-item">
+        <a (click)="onPageChange(currentPage=currentPage+1)" class="page-link">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

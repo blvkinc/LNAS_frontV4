@@ -1,0 +1,26 @@
+<div class="pagetitle" [hasRole]="['ADMIN', 'MODERATOR', 'EMPLOYEE']">
+  <h1>Farm Management</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/">Production</a></li>
+      <li class="breadcrumb-item">Manage Farms</li>
+    </ol>
+  </nav>
+</div>
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <app-farm-form
+          (onCreate)="onRefresh()"
+          (onSearch)="onSearch($event)"
+          [hasRole]="['ADMIN', 'MODERATOR']"
+        ></app-farm-form>       
+          <app-farm-table (onEdit)="onEdit($event)"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,113 @@
+<h5 class="card-title"  >
+  {{type === 'SEARCH' ? 'Search Plants' : ''}}
+  {{type === 'CREATE' ? 'Create New Plant' : ''}}
+  {{type === 'UPDATE' ? 'Update Plant' : ''}}
+</h5>
+<form [formGroup]="form" class="row g-3" [hasRole]="['ADMIN', 'MODERATOR']">
+  <div class="col-md-6">
+    <label>Plant Name</label>
+    <input class="form-control" formControlName="name" type="text">
+    <!-- Display error message if the name field is invalid -->
+    <div *ngIf="form.get('name').invalid && form.get('name').touched">
+      <div *ngIf="form.get('name').errors.required" style="color: orangered">
+        Name is required.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label>Scientific Name</label>
+    <input class="form-control" formControlName="scientificName" type="text">
+    <!-- Display error message if the name field is invalid -->
+    <div *ngIf="form.get('name').invalid && form.get('name').touched">
+      <div *ngIf="form.get('name').errors.required" style="color: orangered">
+        Scientific Name is required.
+      </div>
+    </div>
+  </div>
+  <div *ngIf="type!=='SEARCH'" class="col-md-6">
+    <label>Quantity At Hand</label>
+    <input class="form-control" formControlName="qtyAtHand" type="number">
+    <!-- Display error message if the name field is invalid -->
+    <div *ngIf="form.get('qtyAtHand').invalid && form.get('qtyAtHand').touched">
+      <div *ngIf="form.get('qtyAtHand').errors.required" style="color: orangered">
+        Quantity At Hand is required.
+      </div>
+    </div>
+  </div>
+  <div *ngIf="type!=='SEARCH'" class="col-md-6">
+    <label>Quantity Potential</label>
+    <input class="form-control" formControlName="qtyPotential" type="number">
+    <!-- Display error message if the name field is invalid -->
+    <div *ngIf="form.get('qtyPotential').invalid && form.get('qtyPotential').touched">
+      <div *ngIf="form.get('qtyPotential').errors.required" style="color: orangered">
+        Quantity Potential is required.
+      </div>
+    </div>
+  </div>
+  <div *ngIf="type!=='SEARCH'" class="col-md-6">
+    <label>Purchase Price</label>
+    <input class="form-control" formControlName="purchasePrice" type="number">
+    <!-- Display error message if the name field is invalid -->
+    <div *ngIf="form.get('purchasePrice').invalid && form.get('purchasePrice').touched">
+      <div *ngIf="form.get('purchasePrice').errors.required" style="color: orangered">
+        Purchase Price is required.
+      </div>
+    </div>
+  </div>
+  <div *ngIf="type!=='SEARCH'" class="col-md-6">
+    <label>Sales Price</label>
+    <input class="form-control" formControlName="salesPrice" type="number">
+    <!-- Display error message if the name field is invalid -->
+    <div *ngIf="form.get('salesPrice').invalid && form.get('salesPrice').touched">
+      <div *ngIf="form.get('salesPrice').errors.required" style="color: orangered">
+        Sales Price is required.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label>Product ID</label>
+    <input class="form-control" formControlName="productId" type="email">
+    <!-- Display error message if the name field is invalid -->
+    <div *ngIf="form.get('productId').invalid && form.get('productId').touched">
+      <div *ngIf="form.get('productId').errors.required" style="color: orangered">
+        Product ID is required.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label>Status</label>
+    <select class="form-select" formControlName="status" id="inputState">
+      <option value="AVAILABLE">Available</option>
+      <option value="UNAVAILABLE">Unavailable</option>
+    </select>
+    <!-- Display error message if the name field is invalid -->
+    <div *ngIf="form.get('status').invalid && form.get('status').touched">
+      <div *ngIf="form.get('status').errors.required" style="color: orangered">
+        Status is required.
+      </div>
+    </div>
+  </div>
+  <div *ngIf="type!=='SEARCH'" class="col-md-12">
+    <label>Description</label>
+    <input class="form-control" formControlName="description" type="text">
+  </div>
+  <div style="display: flex; flex-direction: row;justify-content: space-between;">
+    <div style="display: flex; flex-direction: row; gap: 10px">
+      <button (click)="type='CREATE'" *ngIf="type=='SEARCH'" class="btn btn-primary" type="button">Add New</button>
+      <button (click)="onSubmit()" *ngIf="type==='UPDATE'" class="btn btn-dark" type="button">Update</button>
+      <button (click)="onCancel()" *ngIf="type==='UPDATE'" class="btn btn-secondary" type="button">
+        Cancel
+      </button>
+    </div>
+    <div style="display: flex; flex-direction: row; gap: 10px">
+      <button (click)="onSearchClick()" *ngIf="type==='SEARCH'" class="btn btn-primary" type="button">
+        Search
+      </button>
+      <button (click)="onSubmit()" *ngIf="type==='CREATE'" class="btn btn-primary" type="button">Save</button>
+      <button (click)="onSearchClear()" *ngIf="type==='SEARCH'" class="btn btn-secondary" type="button">Clear</button>
+      <button (click)="onCancel()" *ngIf="type==='CREATE'" class="btn btn-secondary" type="button">
+        Cancel
+      </button>
+    </div>
+  </div>
+</form>

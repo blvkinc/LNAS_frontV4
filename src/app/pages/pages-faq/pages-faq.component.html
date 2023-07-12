@@ -1,0 +1,131 @@
+<main class="main" id="main">
+  <div class="pagetitle">
+    <h1>Contact us</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="dashboard">Home</a></li>
+        <li class="breadcrumb-item active">Realtime Overveiw</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section faq">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card basic">
+          <div class="card-body">
+            <h5 class="card-title">Production Overveiw</h5>
+            <div class="card-body">
+              <h6>Important Notice</h6>
+              <p>Please refer to the inventory details for more information as the amounts below are aggrigated
+                amounts..</p>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <h6 class="card-title"><b><i class="flaticon-money"></i> Total Produce Available</b></h6>
+                <p class="value">{{ monthlyProduction }}</p>
+              </div>
+              <div class="col-md-6">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">ways to reach us,</h5>
+            <div class="accordion accordion-flush" id="faq-group-2">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" data-bs-target="#faqsTwo-1" data-bs-toggle="collapse"
+                          type="button">
+                    Want to buy our produce?
+                  </button>
+                </h2>
+                <div class="accordion-collapse collapse" data-bs-parent="#faq-group-2" id="faqsTwo-1">
+                  <div class="accordion-body">
+                    Reach out to us by emailing <a
+                    href="mailto:LankaNaturalAgri@gmail.com">LankaNaturalAgri@gmail.com</a> or calling <a
+                    href="tel:+94xxxxxxxx">(+94) - xxxxxxxx</a> to place an order for products. Please be aware that we
+                    deliver your order five days after you place it.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" data-bs-target="#faqsTwo-2" data-bs-toggle="collapse"
+                          type="button">
+                    How can I contact regarding supplying a specific plant?
+                  </button>
+                </h2>
+                <div class="accordion-collapse collapse" data-bs-parent="#faq-group-2" id="faqsTwo-2">
+                  <div class="accordion-body">
+                    If you are a supplier interested in supplying a specific plant that needs to go through a process of
+                    quality assurance, please reach out to us. You can contact us at <a
+                    href="mailto:test@lankanaturalagri.com">test@lankanaturalagri.com</a> for further information and
+                    guidance on the necessary steps and requirements.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" data-bs-target="#faqsTwo-3" data-bs-toggle="collapse"
+                          type="button">
+                    Willing to join the farming revolution?
+                  </button>
+                </h2>
+                <div class="accordion-collapse collapse" data-bs-parent="#faq-group-2" id="faqsTwo-3">
+                  <div class="accordion-body">
+                    Yes, local farms are welcome to join our company. We believe in promoting local agriculture and
+                    supporting local farmers. If you are a local farm interested in partnering with us, please contact
+                    our team at <a href="mailto:test@lankanaturalagri.com">join@lankanaturalagri.com</a> further details
+                    and requirements.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+        </div>
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Email Us</h5>
+              <form (submit)="sendEmail()" enctype="text/plain">
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label" for="inputName">Your Name</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" id="inputName" name="name" type="text">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label" for="inputEmail">Email</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" id="inputEmail" name="email" type="email">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label" for="inputMessage">Message</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" id="inputMessage" name="message" rows="3"></textarea>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-primary" type="submit">Send Email</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </section>
+</main>

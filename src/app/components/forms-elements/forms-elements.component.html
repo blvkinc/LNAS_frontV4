@@ -1,0 +1,221 @@
+<main class="main" id="main">
+  <div class="pagetitle">
+    <h1>Form Elements</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">Forms</li>
+        <li class="breadcrumb-item active">Elements</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">General Form Elements</h5>
+            <form>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="inputText">Text</label>
+                <div class="col-sm-10"><input class="form-control" type="text"></div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="inputEmail">Email</label>
+                <div class="col-sm-10"><input class="form-control" type="email"></div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="inputPassword">Password</label>
+                <div class="col-sm-10"><input class="form-control" type="password"></div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="inputNumber">Number</label>
+                <div class="col-sm-10"><input class="form-control" type="number"></div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="inputNumber">File Upload</label>
+                <div class="col-sm-10"><input class="form-control" id="formFile" type="file"></div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="inputDate">Date</label>
+                <div class="col-sm-10"><input class="form-control" type="date"></div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="inputTime">Time</label>
+                <div class="col-sm-10"><input class="form-control" type="time"></div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="inputColor">Color Picker</label>
+                <div class="col-sm-10"><input class="form-control form-control-color" id="exampleColorInput"
+                                              title="Choose your color" type="color" value="#4154f1"></div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="inputPassword">Textarea</label>
+                <div class="col-sm-10"><textarea class="form-control" style="height: 100px"></textarea></div>
+              </div>
+              <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+                <div class="col-sm-10">
+                  <div class="form-check"><input checked class="form-check-input" id="gridRadios1"
+                                                 name="gridRadios" type="radio" value="option1"> <label
+                    class="form-check-label" for="gridRadios1"> First radio </label></div>
+                  <div class="form-check"><input class="form-check-input" id="gridRadios2" name="gridRadios"
+                                                 type="radio" value="option2"> <label class="form-check-label"
+                                                                                      for="gridRadios2"> Second
+                    radio </label></div>
+                  <div class="form-check disabled"><input class="form-check-input" disabled id="gridRadios"
+                                                          name="gridRadios" type="radio" value="option"> <label
+                    class="form-check-label" for="gridRadios3"> Third disabled radio </label></div>
+                </div>
+              </fieldset>
+              <div class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">Checkboxes</legend>
+                <div class="col-sm-10">
+                  <div class="form-check"><input class="form-check-input" id="gridCheck1" type="checkbox"> <label
+                    class="form-check-label" for="gridCheck1"> Example checkbox </label></div>
+                  <div class="form-check"><input checked class="form-check-input" id="gridCheck2" type="checkbox">
+                    <label class="form-check-label" for="gridCheck2"> Example checkbox 2 </label></div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Disabled</label>
+                <div class="col-sm-10"><input class="form-control" disabled type="text" value="Read only / Disabled">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Select</label>
+                <div class="col-sm-10">
+                  <select aria-label="Default select example" class="form-select">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Multi Select</label>
+                <div class="col-sm-10">
+                  <select aria-label="multiple select example" class="form-select" multiple>
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Submit Button</label>
+                <div class="col-sm-10">
+                  <button class="btn btn-primary" type="submit">Submit Form</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Advanced Form Elements</h5>
+            <form>
+              <div class="row mb-5">
+                <label class="col-sm-2 col-form-label">Switches</label>
+                <div class="col-sm-10">
+                  <div class="form-check form-switch"><input class="form-check-input" id="flexSwitchCheckDefault"
+                                                             type="checkbox"> <label
+                    class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label></div>
+                  <div class="form-check form-switch"><input checked class="form-check-input"
+                                                             id="flexSwitchCheckChecked" type="checkbox"> <label
+                    class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label></div>
+                  <div class="form-check form-switch"><input class="form-check-input" disabled
+                                                             id="flexSwitchCheckDisabled" type="checkbox"> <label
+                    class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox input</label></div>
+                  <div class="form-check form-switch"><input checked class="form-check-input"
+                                                             disabled id="flexSwitchCheckCheckedDisabled"
+                                                             type="checkbox">
+                    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked switch
+                      checkbox input</label></div>
+                </div>
+              </div>
+              <div class="row mb-5">
+                <label class="col-sm-2 col-form-label">Ranges</label>
+                <div class="col-sm-10">
+                  <div><label class="form-label" for="customRange1">Example range</label> <input class="form-range"
+                                                                                                 id="customRange1"
+                                                                                                 type="range">
+                  </div>
+                  <div><label class="form-label" for="disabledRange">Disabled range</label> <input class="form-range"
+                                                                                                   disabled
+                                                                                                   id="disabledRange"
+                                                                                                   type="range"></div>
+                  <div><label class="form-label" for="customRange2">Min and max with steps</label> <input
+                    class="form-range"
+                    id="customRange2"
+                    max="5"
+                    min="0"
+                    step="0.5"
+                    type="range">
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Floating labels</label>
+                <div class="col-sm-10">
+                  <div class="form-floating mb-3"><input class="form-control" id="floatingInput"
+                                                         placeholder="name@example.com"
+                                                         type="email"> <label for="floatingInput">Email
+                    address</label></div>
+                  <div class="form-floating mb-3"><input class="form-control" id="floatingPassword"
+                                                         placeholder="Password"
+                                                         type="password"> <label
+                    for="floatingPassword">Password</label></div>
+                  <div class="form-floating mb-3"><textarea class="form-control" id="floatingTextarea"
+                                                            placeholder="Leave a comment here"
+                                                            style="height: 100px;"></textarea><label
+                    for="floatingTextarea">Comments</label></div>
+                  <div class="form-floating mb-3">
+                    <select aria-label="Floating label select example" class="form-select" id="floatingSelect">
+                      <option selected>Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Works with selects</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-5">
+                <label class="col-sm-2 col-form-label">Input groups</label>
+                <div class="col-sm-10">
+                  <div class="input-group mb-3"><span class="input-group-text" id="basic-addon1">@</span> <input
+                    aria-describedby="basic-addon1" aria-label="Username" class="form-control" placeholder="Username"
+                    type="text"></div>
+                  <div class="input-group mb-3"><input aria-describedby="basic-addon2" aria-label="Recipient's username"
+                                                       class="form-control"
+                                                       placeholder="Recipient's username"
+                                                       type="text"> <span class="input-group-text"
+                                                                          id="basic-addon2">@example.com</span>
+                  </div>
+                  <label class="form-label" for="basic-url">Your vanity URL</label>
+                  <div class="input-group mb-3"><span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                    <input aria-describedby="basic-addon3" class="form-control" id="basic-url" type="text"></div>
+                  <div class="input-group mb-3"><span class="input-group-text">$</span> <input
+                    aria-label="Amount (to the nearest dollar)"
+                    class="form-control"
+                    type="text">
+                    <span class="input-group-text">.00</span></div>
+                  <div class="input-group mb-3"><input aria-label="Username" class="form-control" placeholder="Username"
+                                                       type="text"> <span class="input-group-text">@</span>
+                    <input aria-label="Server" class="form-control" placeholder="Server" type="text"></div>
+                  <div class="input-group"><span class="input-group-text">With textarea</span><textarea
+                    aria-label="With textarea" class="form-control"></textarea></div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

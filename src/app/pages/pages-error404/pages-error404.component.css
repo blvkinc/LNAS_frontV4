@@ -1,0 +1,20 @@
+main {
+  background-color: #88ac8c !important;
+  color: #ffffff !important;
+  border-radius: 5px !important;
+}
+
+h1, h2 {
+  color: #ffffff !important;
+}
+
+.btn {
+  border: 1px solid #ffffff;
+  background-color: transparent;
+}
+
+.btn:hover {
+  border: 1px solid #ffffff;
+  background-color: white;
+  color: #88ac8c;
+}

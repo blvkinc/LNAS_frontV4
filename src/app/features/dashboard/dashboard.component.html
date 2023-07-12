@@ -1,0 +1,91 @@
+<div class="pagetitle">
+  <h1>Dashboard</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item">Dashboard</li>
+    </ol>
+  </nav>
+  <section class="section">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4"><img alt="Lanka Natural Agri Services" class="img-fluid rounded-start" height="200rem"
+                                   src="assets/img/homeimg.png" width="200rem"></div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h1 class="card-title-main">Welcome to<br> <b>Lanka Natural Agri Services.</b></h1>
+            <p class="card-text"><i>"Improving Sri Lankan agriculture through sustainability and innovation."</i></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" [hasRole]="['ADMIN','MODERATOR']">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Aggregate summary</h5>
+            <div class="row">
+              <div class="col-md-6">
+                <h6 class="title"><b><i class="flaticon-money"></i> Total sales</b></h6>
+                <p class="value">{{ totalSales }}</p>
+              </div>
+              <div class="col-md-6">
+                <h6 class="title"><b><i class="flaticon-industrial-robot"></i> Total Production</b></h6>
+                <p class="value">{{ totalProduction }}</p>
+              </div>
+              <div class="col-md-6">
+                <h6 class="title"><b><i class="flaticon-inventory"></i> Total Inventory</b></h6>
+                <p class="value">{{totalCount}}</p>
+              </div>
+              <div class="col-md-6">
+                <h6 class="title"><b><i class="flaticon-farm"></i> Total Farms</b></h6>
+                <p class="value">{{totalFarms}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Monthly summary</h5>
+            <div class="row">
+              <div class="col-md-6">
+                <h6 class="title"><b><i class="flaticon-dollar-sign"></i> Monthly sales</b></h6>
+                <p class="value">{{monthlySales}}</p>
+              </div>
+              <div class="col-md-6">
+                <h6 class="title"><b><i class="flaticon-tools"></i> Monthly Production</b></h6>
+                <p class="value">{{monthlyProduction}}</p>
+              </div>
+              <div class="col-md-6">
+                <h6 class="title"><b><i class="flaticon-box"></i> Monthly Inventory</b></h6>
+                <p class="value">{{monthlyInventory}}</p>
+              </div>
+              <div class="col-md-6">
+                <h6 class="title"><b><i class="flaticon-farm-1"></i> Active Farms</b></h6>
+                <p class="value">{{activeFarms}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 1rem;">
+    <div style="background-color: white; padding: 2rem;">
+      <app-sales-chart></app-sales-chart>
+    </div>
+    <div style="background-color: white; padding: 2rem;">
+      <app-production-chart></app-production-chart>
+    </div>
+    <div style="background-color: white; padding: 2rem;">
+      <app-production-by-farm-chart></app-production-by-farm-chart>
+    </div>
+    <div style="background-color: white; padding: 2rem;">
+      <app-purchase-chart></app-purchase-chart>
+    </div>
+  </div>
+</div>

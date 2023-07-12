@@ -1,0 +1,25 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="row g-3 needs-validation" novalidate>
+  <div class="col-12">
+    <label class="form-label">First Name</label>
+    <input class="form-control" required type="text" formControlName="firstName">
+  </div>
+  <div class="col-12">
+    <label class="form-label">Last Name</label>
+    <input class="form-control" required type="text" formControlName="lastName">
+  </div>
+  <div class="col-12">
+    <label class="form-label">Email</label>
+    <input class="form-control" required type="email" formControlName="email">
+  </div>
+  <div class="col-12">
+    <label class="form-label">Address</label>
+    <input class="form-control" formControlName="address" required type="text">
+  </div>
+  <div class="col-12">
+    <label class="form-label">Phone</label>
+    <input class="form-control" formControlName="phone" required type="tel">
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary w-100" type="submit">Update Details</button>
+  </div>
+</form>
