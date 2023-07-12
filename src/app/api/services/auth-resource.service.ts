@@ -342,4 +342,57 @@ export class AuthResourceService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation isEmailAvailable
+   */
+  static readonly IsEmailAvailablePath = '/api/auth/is-email-available';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `isEmailAvailable()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  isEmailAvailable$Response(params: {
+    email: string;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<void>> {
+
+    const rb = new RequestBuilder(this.rootUrl, AuthResourceService.IsEmailAvailablePath, 'get');
+    if (params) {
+      rb.query('email', params.email, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: '*/*',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `isEmailAvailable$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  isEmailAvailable(params: {
+    email: string;
+  },
+  context?: HttpContext
+
+): Observable<void> {
+
+    return this.isEmailAvailable$Response(params,context).pipe(
+      map((r: StrictHttpResponse<void>) => r.body as void)
+    );
+  }
+
 }

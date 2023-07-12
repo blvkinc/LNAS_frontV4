@@ -14,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
   ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (!request.url.includes('/auth/register') && !request.url.includes('/auth/login')) {
+    if (!request.url.includes('/auth/register') && !request.url.includes('/auth/login') && !request.url.includes('/auth/is-email-available') ) {
 
       const token = this.authDataService.getAccessToken();
       request = this.addTokenToRequest(request, token);

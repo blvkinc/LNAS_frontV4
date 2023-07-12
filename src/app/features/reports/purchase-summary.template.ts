@@ -10,7 +10,7 @@ export function getPurchaseSummaryTemplate(data: any): any {
           },
           [
             {
-              text: ' Monthly Purchase Summary',
+              text: 'Purchase Summary',
               color: '#333333',
               width: '*',
               fontSize: 28,
@@ -23,15 +23,15 @@ export function getPurchaseSummaryTemplate(data: any): any {
                 {
                   columns: [
                     {
-                      text: 'Month',
-                      color: '#aaaaab',
+                      text: data.startDate,
                       bold: true,
-                      width: '*',
+                      color: '#333333',
                       fontSize: 12,
                       alignment: 'right',
+                       margin: [0, 0, 0, 0],
                     },
                     {
-                      text: 'June 01, 2016',
+                      text: data.endDate,
                       bold: true,
                       color: '#333333',
                       fontSize: 12,

@@ -24,59 +24,6 @@ export class UserResourceService extends BaseService {
   }
 
   /**
-   * Path part for operation getUser
-   */
-  static readonly GetUserPath = '/api/users/{id}';
-
-  /**
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getUser()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  getUser$Response(params: {
-    id: number;
-  },
-  context?: HttpContext
-
-): Observable<StrictHttpResponse<UserDto>> {
-
-    const rb = new RequestBuilder(this.rootUrl, UserResourceService.GetUserPath, 'get');
-    if (params) {
-      rb.path('id', params.id, {});
-    }
-
-    return this.http.request(rb.build({
-      responseType: 'json',
-      accept: 'application/json',
-      context: context
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<UserDto>;
-      })
-    );
-  }
-
-  /**
-   * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getUser$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  getUser(params: {
-    id: number;
-  },
-  context?: HttpContext
-
-): Observable<UserDto> {
-
-    return this.getUser$Response(params,context).pipe(
-      map((r: StrictHttpResponse<UserDto>) => r.body as UserDto)
-    );
-  }
-
-  /**
    * Path part for operation updateUser
    */
   static readonly UpdateUserPath = '/api/users/{id}';
@@ -381,6 +328,112 @@ export class UserResourceService extends BaseService {
 ): Observable<UserDto> {
 
     return this.createUser$Response(params,context).pipe(
+      map((r: StrictHttpResponse<UserDto>) => r.body as UserDto)
+    );
+  }
+
+  /**
+   * Path part for operation getUser
+   */
+  static readonly GetUserPath = '/api/users/by-id/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getUser()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUser$Response(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<UserDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, UserResourceService.GetUserPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<UserDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `getUser$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUser(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<UserDto> {
+
+    return this.getUser$Response(params,context).pipe(
+      map((r: StrictHttpResponse<UserDto>) => r.body as UserDto)
+    );
+  }
+
+  /**
+   * Path part for operation getUserbyEmail
+   */
+  static readonly GetUserbyEmailPath = '/api/users/by-email/{email}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getUserbyEmail()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUserbyEmail$Response(params: {
+    email: string;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<UserDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, UserResourceService.GetUserbyEmailPath, 'get');
+    if (params) {
+      rb.path('email', params.email, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<UserDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `getUserbyEmail$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUserbyEmail(params: {
+    email: string;
+  },
+  context?: HttpContext
+
+): Observable<UserDto> {
+
+    return this.getUserbyEmail$Response(params,context).pipe(
       map((r: StrictHttpResponse<UserDto>) => r.body as UserDto)
     );
   }

@@ -47,13 +47,13 @@ export class RegisterPageComponent {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      firstName: ['null', [Validators.required], []],
-      lastName: ['null', [Validators.required], []],
-      email: ['null@null.com', [Validators.required], []],
-      address: ['null', [], []],
-      password: ['null', [Validators.required], []],
-      confirmPassword: ['null', [Validators.required], []],
-      phone: ['null', [], []],
+      firstName: ['john', [Validators.required], []],
+      lastName: ['Deer', [Validators.required], []],
+      email: ['john@deer.com', [Validators.required, Validators.pattern(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/)]],
+      address: ['address', [], []],
+      password: ['password', [Validators.required], []],
+      confirmPassword: ['password', [Validators.required], []],
+      phone: ['(+xx ) - xxxxxxxx', [], []],
       role: [null, [Validators.required], []],
     });
   }
@@ -68,24 +68,32 @@ export class RegisterPageComponent {
     }
   }
 
-  onSubmit() {
+ onSubmit() {
     this.validateForm();
     this.validatePassword();
     if (!this.form.invalid) {
       const data = this.form.value;
-      this.service.signUp({body: data}).subscribe({
+      this.service.isEmailAvailable({email: data.email}).subscribe({
         next: (res) => {
-          this.onFormSubmit.emit(res);
-          this.resetForm();
-          this.message.success('Registration Successful');
-        },
+          this.service.signUp({body: data}).subscribe({
+            next: (res) => {
+              this.onFormSubmit.emit(res);
+              this.resetForm();
+              this.message.success('Registration Successful');
+            },
 
+            error: (err) => {
+              console.log(err);
+              this.message.error('Registration Failed, Please Try Again');
+              this.resetForm();
+            },
+          });
+        },
         error: (err) => {
-          console.log(err);
-          this.message.error('Registration Failed, Please Try Again');
-          this.resetForm();
+          this.message.error('Email Already Exists');
         },
       });
+
     }
   }
 }

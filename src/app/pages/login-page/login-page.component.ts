@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {Router, RouterLink} from '@angular/router';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {AuthResourceService} from '../../api/services/auth-resource.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-page',
@@ -17,6 +18,7 @@ export class LoginPageComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private service: AuthResourceService,
+    private toastr : ToastrService
   ) { }
 
   ngOnInit() {
@@ -54,6 +56,7 @@ export class LoginPageComponent implements OnInit {
           this.router.navigate(['/home']);
         },
         error: (err) => {
+          this.toastr.error('Login Error');
           console.log(err);
         },
       });

@@ -96,6 +96,8 @@ export class MonthlyReportsComponent implements OnInit {
       templateData['totalUnitCost'] = totalUnitCost;
       templateData['totalRevenue'] = totalRevenue;
       templateData['totalProfit'] = totalProfit;
+      templateData['startDate'] = this.startDate;
+      templateData['endDate'] = this.endDate;
 
       let template = getSalesSummaryTemplate(templateData);
       const pdfDocGenerator = pdfMake.createPdf(template);
@@ -137,6 +139,8 @@ generateProductionSummaryReport(startDate: string, endDate: string) {
       });
 
       templateData['productionTotal'] = totalProduction;
+      templateData['startDate'] = this.startDate;
+      templateData['endDate'] = this.endDate;
 
       let template = getProductionSummaryTemplate(templateData);
       const pdfDocGenerator = pdfMake.createPdf(template);
@@ -178,6 +182,8 @@ generateProductionSummaryReport(startDate: string, endDate: string) {
         });
 
         templateData['totalPurchase'] = purchaseTotal;
+        templateData['startDate'] = this.startDate;
+        templateData['endDate'] = this.endDate;
 
         let template = getPurchaseSummaryTemplate(templateData);
         const pdfDocGenerator = pdfMake.createPdf(template);
@@ -218,6 +224,8 @@ generateProductionSummaryReport(startDate: string, endDate: string) {
         });
 
         templateData['productionTotal'] = variance;
+        templateData['startDate'] = this.startDate;
+        templateData['endDate'] = this.endDate;
 
         let template = getFarmSummaryTemplate(templateData);
         const pdfDocGenerator = pdfMake.createPdf(template);
@@ -258,6 +266,9 @@ generateProductionSummaryReport(startDate: string, endDate: string) {
         });
 
         templateData['totalSalary'] = salaryTotal;
+        templateData['startDate'] = this.startDate;
+        templateData['endDate'] = this.endDate;
+        
 
         let template = getSalarySummaryTemplate(templateData);
         const pdfDocGenerator = pdfMake.createPdf(template);

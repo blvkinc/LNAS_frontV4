@@ -6,6 +6,7 @@ import {UserResourceService} from '../../../api/services/user-resource.service';
 import {EmployeeDto} from '../../../api/models/employee-dto';
 import {EmployeeResourceService} from '../../../api/services/employee-resource.service';
 import {ToastrService} from 'ngx-toastr';
+import { AuthResourceService } from 'src/app/api/services';
 
 @Component({
   selector: 'app-user-form',
@@ -27,6 +28,7 @@ export class UserFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private service: UserResourceService,
     private employeeService: EmployeeResourceService,
+    private authService : AuthResourceService,
     private toast: ToastrService
   ) { }
 
@@ -53,10 +55,9 @@ export class UserFormComponent implements OnInit {
       lastName: [this.inputValue?.lastName ?? null, [Validators.required]],
       email: [this.inputValue?.email ?? null],
       phone: [this.inputValue?.phone ?? null],
-      username: [this.inputValue?.username ?? null, [Validators.required]],
+      username: [],
       password: [this.inputValue?.password ?? null, [Validators.required]],
       role: [this.inputValue?.role ?? null, [Validators.required]],
-      employee: [this.inputValue?.employee ?? null, [Validators.required]],
     });
   }
 
@@ -89,20 +90,29 @@ export class UserFormComponent implements OnInit {
     this.validateForm();
     if (!this.form.invalid) {
       const data = this.form.value;
-
       if (!this.inputValue) {
-        this.service.createUser({body: data}).subscribe({
+
+        this.authService.isEmailAvailable({email: data.email}).subscribe({
           next: (res) => {
-            console.log(res);
-            this.onCreate.emit(this.form.value);
-            this.toast.success('User Created Successfully');
-            this.resetForm();
+            this.service.createUser({body: data}).subscribe({
+              next: (res) => {
+                console.log(res);
+                this.onCreate.emit(this.form.value);
+                this.toast.success('User Created Successfully');
+                this.resetForm();
+              },
+              error: (err) => {
+                this.toast.error('Failed to Create the User');
+                console.log(err);
+              },
+            });
           },
           error: (err) => {
-            this.toast.error('Failed to Create the User');
             console.log(err);
+            this.toast.error('Email Already Exist');
           },
         });
+
       } else {
         this.service.updateUser({body: data, id: this.inputValue.id}).subscribe({
           next: (res) => {

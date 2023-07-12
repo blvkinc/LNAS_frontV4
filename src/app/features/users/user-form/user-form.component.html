@@ -32,16 +32,7 @@
     <label>Phone</label>
     <input class="form-control" formControlName="phone" type="tel">
   </div>
-  <div *ngIf="type==='CREATE'" class="col-md-6">
-    <label>Username</label>
-    <input class="form-control" formControlName="username" type="text">
-    <!-- Display error message if the lastName field is invalid -->
-    <div *ngIf="form.get('username').invalid && form.get('username').touched && type !== 'SEARCH'">
-      <div *ngIf="form.get('username').errors.required" style="color: orangered">
-        Username is required.
-      </div>
-    </div>
-  </div>
+ 
   <div *ngIf="type==='CREATE'" class="col-md-6">
     <label>Password</label>
     <input class="form-control" formControlName="password" type="password">
@@ -66,19 +57,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="employeeList && type==='CREATE'" class="col-md-6">
-    <label>Employee</label>
-    <select class="form-select" formControlName="employee" id="inputEmployee">
-      <option *ngFor="let employee of employeeList"
-              [value]="employee.id">{{employee.firstName}} {{employee.lastName}}</option>
-    </select>
-    <!-- Display error message if the name field is invalid -->
-    <div *ngIf="form.get('employee').invalid && form.get('employee').touched && type !== 'SEARCH'">
-      <div *ngIf="form.get('employee').errors.required" style="color: orangered">
-        Employee is required.
-      </div>
-    </div>
-  </div>
+  
   <div style="display: flex; flex-direction: row;justify-content: space-between;">
     <div style="display: flex; flex-direction: row; gap: 10px">
       <button (click)="type='CREATE'" *ngIf="type=='SEARCH'" class="btn btn-primary" type="button">Add New</button>
